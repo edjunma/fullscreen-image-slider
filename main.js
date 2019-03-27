@@ -18,4 +18,21 @@ const nextSlide = () => {
     // Add current to start
     slides[0].classList.add("current");
   }
+  setTimeout(() => current.classList.remove("current"));
+};
+
+const prevSlide = () => {
+  // Get current class
+  const current = document.querySelector(".current");
+  // Remove current class
+  current.classList.remove();
+  // Check for previous slide
+  if (current.previousElementSibling) {
+    // Add current to next sibling
+    current.previousElementSibling.classList.add("current");
+  } else {
+    // Add current to last
+    slides[slides.length - 1].classList.add("current");
+  }
+  setTimeout(() => current.classList.remove("current"));
 };
